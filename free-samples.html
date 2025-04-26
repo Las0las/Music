@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Sample Packs | Echo Samples</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Additional styles for free samples page */
+        .free-samples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .signup-banner {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            padding: 40px 0;
+            text-align: center;
+            margin: 50px 0;
+            border-radius: 10px;
+        }
+        
+        .signup-banner h2 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .signup-banner p {
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .sample-card .free-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        
+        .sample-img {
+            position: relative;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Echo<span>Samples</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Sample Packs</a></li>
+                    <li><a href="free-samples.html" class="active">Free Samples</a></li>
+                    <li><a href="subscription.html">Subscription</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Free Samples Hero -->
+    <section class="hero" style="background: url('assets/free-samples-hero.jpg') no-repeat center center/cover; height: 50vh;">
+        <div class="container hero-content">
+            <h1>Free Sample Packs</h1>
+            <p>Download high-quality free samples to elevate your music production</p>
+            <div class="cta-buttons">
+                <a href="#free-samples" class="btn btn-primary">Browse Free Samples</a>
+                <a href="signup.html" class="btn btn-outline">Sign Up for More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Samples Section -->
+    <section class="featured" id="free-samples">
+        <div class="container">
+            <div class="section-title">
+                <h2>Free Sample Collection</h2>
+                <p>No strings attached - just great sounds to get you started</p>
+            </div>
+            
+            <div class="free-samples-grid">
+                <!-- Eternal Echo - Featured Free Sample -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <span class="featured-badge">Featured</span>
+                        <span class="free-tag">Free</span>
+                        <img src="assets/eternal-echo.jpg" alt="Eternal Echo Sample Pack">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Eternal Echo</h3>
+                        <p>Emotional guitar-driven samples inspired by MGK's "Twin Flame" style.</p>
+                        <div class="sample-meta">
+                            <span>4 MIDI Files</span>
+                            <span>75 BPM</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="midi/melody.mid" type="audio/midi">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="eternal-echo.html" class="btn btn-primary btn-sm">Get Free</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Super Trap Loop Kit -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <span class="free-tag">Free</span>
+                        <img src="assets/trap-melody-sample.jpg" alt="Super Trap Loop Kit">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Super Trap Loop Kit</h3>
+                        <p>Modern trap melody loops perfect for hip-hop and trap productions.</p>
+                        <div class="sample-meta">
+                            <span>6 Melody Loops</span>
+                            <span>140 BPM</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="assets/trap-melody-preview.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Get Free</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lofi Essentials Lite -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <span class="free-tag">Free</span>
+                        <img src="assets/lofi-essentials.jpg" alt="Lofi Essentials Lite Sample Pack">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Lofi Essentials Lite</h3>
+                        <p>Warm vinyl crackles, dusty drums, and mellow piano samples for lofi hip hop.</p>
+                        <div class="sample-meta">
+                            <span>15 Samples</span>
+                            <span>90 BPM</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Get Free</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sign Up Banner -->
+            <div class="signup-banner">
+                <h2>Want More Free Samples?</h2>
+                <p>Sign up for a free account to get access to our entire collection of free samples and exclusive offers.</p>
+                <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
+            </div>
+            
+            <!-- Premium Samples Preview -->
+            <div class="section-title">
+                <h2>Premium Samples</h2>
+                <p>Upgrade to a subscription for unlimited access to our premium collection</p>
+            </div>
+            
+            <div class="free-samples-grid">
+                <!-- Premium Sample 1 -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/premium-sample1.jpg" alt="Urban Beats Collection">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Urban Beats Collection</h3>
+                        <p>Modern trap and hip-hop samples with punchy drums and melodic elements.</p>
+                        <div class="sample-meta">
+                            <span class="price">$29.99</span>
+                            <span>120+ Samples</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="subscription.html" class="btn btn-primary btn-sm">Get with Pro</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Sample 2 -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/premium-sample2.jpg" alt="Ambient Textures">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Ambient Textures</h3>
+                        <p>Atmospheric pads, evolving textures, and cinematic soundscapes.</p>
+                        <div class="sample-meta">
+                            <span class="price">$24.99</span>
+                            <span>85+ Samples</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="subscription.html" class="btn btn-primary btn-sm">Get with Pro</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Sample 3 -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/premium-sample3.jpg" alt="Vocal Chops & Phrases">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Vocal Chops & Phrases</h3>
+                        <p>Professional vocal samples, chops, and phrases for modern productions.</p>
+                        <div class="sample-meta">
+                            <span class="price">$39.99</span>
+                            <span>100+ Samples</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="subscription.html" class="btn btn-primary btn-sm">Get with Pro</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Echo Samples</h3>
+                    <p>Premium sample packs for modern music producers. Elevate your sound with our high-quality samples, loops, and MIDI files.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Sample Packs</a></li>
+                        <li><a href="free-samples.html">Free Samples</a></li>
+                        <li><a href="subscription.html">Subscription</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <div class="newsletter">
+                        <p>Subscribe to get updates on new sample packs and exclusive offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Echo Samples. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

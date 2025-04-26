@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans | Echo Samples</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Additional styles for subscription page */
+        .subscription-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/subscription-hero.jpg') no-repeat center center/cover;
+            height: 50vh;
+        }
+        
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .plan-card {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .plan-card.featured-plan {
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .plan-price span {
+            font-size: 1rem;
+            color: #aaa;
+        }
+        
+        .plan-features {
+            margin-bottom: 30px;
+        }
+        
+        .plan-features li {
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+        
+        .faq-section {
+            margin-top: 80px;
+        }
+        
+        .faq-item {
+            background-color: #252525;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .faq-question:hover {
+            background-color: #2a2a2a;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .testimonials {
+            margin-top: 80px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--secondary-color);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Echo<span>Samples</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Sample Packs</a></li>
+                    <li><a href="free-samples.html">Free Samples</a></li>
+                    <li><a href="subscription.html" class="active">Subscription</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Subscription Hero -->
+    <section class="hero subscription-hero">
+        <div class="container hero-content">
+            <h1>Subscription Plans</h1>
+            <p>Get unlimited access to premium sample packs and exclusive content</p>
+            <div class="cta-buttons">
+                <a href="#plans" class="btn btn-primary">View Plans</a>
+                <a href="#faq" class="btn btn-outline">FAQ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Plans -->
+    <section class="subscription" id="plans">
+        <div class="container">
+            <div class="section-title">
+                <h2>Choose Your Plan</h2>
+                <p>Select the perfect membership for your music production needs</p>
+            </div>
+            
+            <div class="plans-container">
+                <!-- Free Plan -->
+                <div class="plan-card">
+                    <h3 class="plan-name">Free</h3>
+                    <div class="plan-price">$0<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Access to free sample collection</li>
+                        <li>Basic forum access</li>
+                        <li>Newsletter updates</li>
+                        <li>New free samples monthly</li>
+                        <li class="unavailable">Premium sample packs</li>
+                        <li class="unavailable">Unlimited downloads</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-outline">Get Started</a>
+                </div>
+                
+                <!-- Basic Plan -->
+                <div class="plan-card">
+                    <h3 class="plan-name">Basic</h3>
+                    <div class="plan-price">$9.99<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Access to free sample collection</li>
+                        <li>5 premium downloads per month</li>
+                        <li>New samples every month</li>
+                        <li>Basic forum access</li>
+                        <li>Email support</li>
+                        <li class="unavailable">Unlimited downloads</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-outline">Get Started</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="plan-card featured-plan">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3 class="plan-name">Pro</h3>
+                    <div class="plan-price">$19.99<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Access to all sample packs</li>
+                        <li>Unlimited downloads</li>
+                        <li>Early access to new releases</li>
+                        <li>Producer community access</li>
+                        <li>Exclusive tutorials</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <!-- Studio Plan -->
+                <div class="plan-card">
+                    <h3 class="plan-name">Studio</h3>
+                    <div class="plan-price">$39.99<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Everything in Pro plan</li>
+                        <li>Commercial license for all samples</li>
+                        <li>1-on-1 production consultation</li>
+                        <li>Custom sample creation</li>
+                        <li>Priority support</li>
+                        <li>Exclusive industry events</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-outline">Get Started</a>
+                </div>
+            </div>
+            
+            <!-- Plan Comparison -->
+            <div class="section-title">
+                <h2>Plan Comparison</h2>
+                <p>See which plan is right for you</p>
+            </div>
+            
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Free</th>
+                            <th>Basic</th>
+                            <th>Pro</th>
+                            <th>Studio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Free Sample Collection</td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Premium Sample Packs</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td>5 per month</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Early Access to New Releases</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Producer Community Access</td>
+                            <td>Basic</td>
+                            <td>Basic</td>
+                            <td>Full</td>
+                            <td>Full</td>
+                        </tr>
+                        <tr>
+                            <td>Exclusive Tutorials</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Commercial License</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>1-on-1 Consultation</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Custom Sample Creation</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Members Say</h2>
+                <p>Hear from producers who have elevated their sound with Echo Samples</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Echo Samples has completely transformed my production workflow. The quality of the samples is unmatched, and the unlimited downloads with the Pro plan has been a game-changer for me.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/testimonial1.jpg" alt="Alex Johnson">
+                        <div class="author-info">
+                            <h4>Alex Johnson</h4>
+                            <p>Hip-Hop Producer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>I started with the free plan and was so impressed that I upgraded to Pro within a week. The exclusive tutorials and community access have helped me grow as a producer.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/testimonial2.jpg" alt="Sarah Williams">
+                        <div class="author-info">
+                            <h4>Sarah Williams</h4>
+                            <p>EDM Producer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The Studio plan has been worth every penny. The 1-on-1 consultation helped me take my productions to the next level, and the custom samples created for my project were exactly what I needed.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/testimonial3.jpg" alt="Michael Chen">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Film Composer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our subscription plans</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I cancel my subscription?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can cancel your subscription at any time from your account dashboard. Go to "Subscription" and click "Cancel Subscription." Your subscription will remain active until the end of your current billing period.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I upgrade or downgrade my plan?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can upgrade or downgrade your plan at any time from your account dashboard. If you upgrade, you'll be charged the prorated difference for the remainder of your billing cycle. If you downgrade, the change will take effect at the start of your next billing cycle.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are the samples royalty-free?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All samples in our Basic and Pro plans are royalty-free for personal use. For commercial use (monetized content, client work, etc.), you'll need the Studio plan which includes a commercial license for all samples.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How often are new samples added?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We add new sample packs every week. Pro and Studio members get early access to new releases, while Basic members get access when they're officially released.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What formats are the samples available in?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our samples are available in WAV, MIDI, and sometimes AIFF formats. All audio samples are high-quality 24-bit/44.1kHz WAV files, ensuring the best sound quality for your productions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="free-sample">
+        <div class="container">
+            <div class="free-sample-content">
+                <h2>Ready to Elevate Your Sound?</h2>
+                <p>Join thousands of producers who trust Echo Samples for their music production needs. Start with a free account today and experience the difference.</p>
+                <div class="cta-buttons">
+                    <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
+                    <a href="free-samples.html" class="btn btn-outline">Try Free Samples</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Echo Samples</h3>
+                    <p>Premium sample packs for modern music producers. Elevate your sound with our high-quality samples, loops, and MIDI files.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Sample Packs</a></li>
+                        <li><a href="free-samples.html">Free Samples</a></li>
+                        <li><a href="subscription.html">Subscription</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <div class="newsletter">
+                        <p>Subscribe to get updates on new sample packs and exclusive offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Echo Samples. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all other answers
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('active');
+                    });
+                    
+                    // Toggle current answer
+                    if (!isActive) {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

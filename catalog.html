@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Packs Catalog | Echo Samples</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Additional styles for catalog page */
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .filter-group select, .filter-group input {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #252525;
+            color: #fff;
+        }
+        
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        .pagination a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 5px;
+            background-color: #252525;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .pagination a:hover, .pagination a.active {
+            background-color: var(--secondary-color);
+        }
+        
+        .cart-icon {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pulse {
+            animation: pulse 0.5s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Echo<span>Samples</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html" class="active">Sample Packs</a></li>
+                    <li><a href="free-samples.html">Free Samples</a></li>
+                    <li><a href="subscription.html">Subscription</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Hero -->
+    <section class="hero" style="background: url('assets/catalog-hero.jpg') no-repeat center center/cover; height: 40vh;">
+        <div class="container hero-content">
+            <h1>Sample Pack Catalog</h1>
+            <p>Browse our collection of premium sample packs for your music production needs</p>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="featured">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="all">All Categories</option>
+                        <option value="drums">Drums & Percussion</option>
+                        <option value="melody">Melodic Elements</option>
+                        <option value="bass">Bass</option>
+                        <option value="vocals">Vocals</option>
+                        <option value="fx">FX & Atmospheres</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="genre">Genre</label>
+                    <select id="genre">
+                        <option value="all">All Genres</option>
+                        <option value="hiphop">Hip Hop</option>
+                        <option value="trap">Trap</option>
+                        <option value="rnb">R&B</option>
+                        <option value="pop">Pop</option>
+                        <option value="edm">EDM</option>
+                        <option value="rock">Rock</option>
+                        <option value="ambient">Ambient</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="price">Price Range</label>
+                    <select id="price">
+                        <option value="all">All Prices</option>
+                        <option value="free">Free</option>
+                        <option value="under20">Under $20</option>
+                        <option value="20to50">$20 - $50</option>
+                        <option value="over50">Over $50</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="search">Search</label>
+                    <input type="text" id="search" placeholder="Search sample packs...">
+                </div>
+            </div>
+            
+            <div class="catalog-grid">
+                <!-- Sample Pack 1 -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/sample-pack1.jpg" alt="Urban Beats Sample Pack">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Urban Beats Collection</h3>
+                        <p>Modern trap and hip-hop samples with punchy drums and melodic elements.</p>
+                        <div class="sample-meta">
+                            <span class="price">$29.99</span>
+                            <span>120+ Samples</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Pack 2 -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/sample-pack2.jpg" alt="Ambient Textures Sample Pack">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Ambient Textures</h3>
+                        <p>Atmospheric pads, evolving textures, and cinematic soundscapes.</p>
+                        <div class="sample-meta">
+                            <span class="price">$24.99</span>
+                            <span>85+ Samples</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Pack 3 - Eternal Echo (Free) -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/eternal-echo.jpg" alt="Eternal Echo Sample Pack">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Eternal Echo</h3>
+                        <p>Emotional guitar-driven samples inspired by MGK's "Twin Flame" style.</p>
+                        <div class="sample-meta">
+                            <span class="free-tag">Free for Subscribers</span>
+                            <span>4 MIDI Files</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="eternal-echo.html" class="btn btn-primary btn-sm">Get Free</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sample Pack 4 -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/sample-pack4.jpg" alt="Lofi Essentials Sample Pack">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Lofi Essentials</h3>
+                        <p>Warm vinyl crackles, dusty drums, and mellow piano samples for lofi hip hop.</p>
+                        <div class="sample-meta">
+                            <span class="price">$19.99</span>
+                            <span>150+ Samples</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sample Pack 5 -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/sample-pack5.jpg" alt="Future Bass Toolkit Sample Pack">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Future Bass Toolkit</h3>
+                        <p>Energetic synths, wobbles, and powerful drums for modern EDM production.</p>
+                        <div class="sample-meta">
+                            <span class="price">$34.99</span>
+                            <span>200+ Samples</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sample Pack 6 -->
+                <div class="sample-card">
+                    <div class="sample-img">
+                        <img src="assets/sample-pack6.jpg" alt="Vocal Chops & Phrases Sample Pack">
+                    </div>
+                    <div class="sample-content">
+                        <h3>Vocal Chops & Phrases</h3>
+                        <p>Professional vocal samples, chops, and phrases for modern productions.</p>
+                        <div class="sample-meta">
+                            <span class="price">$39.99</span>
+                            <span>100+ Samples</span>
+                        </div>
+                        <audio class="audio-player" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="sample-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Add to Cart</a>
+                            <a href="#" class="btn btn-outline btn-sm">Preview</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">Next</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Echo Samples</h3>
+                    <p>Premium sample packs for modern music producers. Elevate your sound with our high-quality samples, loops, and MIDI files.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Sample Packs</a></li>
+                        <li><a href="free-samples.html">Free Samples</a></li>
+                        <li><a href="subscription.html">Subscription</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <div class="newsletter">
+                        <p>Subscribe to get updates on new sample packs and exclusive offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Echo Samples. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Catalog specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterInputs = document.querySelectorAll('#category, #genre, #price');
+            const searchInput = document.querySelector('#search');
+            const sampleCards = document.querySelectorAll('.sample-card');
+            
+            // Filter event listeners
+            filterInputs.forEach(filter => {
+                filter.addEventListener('change', filterSamples);
+            });
+            
+            // Search event listener
+            searchInput.addEventListener('input', filterSamples);
+            
+            function filterSamples() {
+                // In a real implementation, this would filter based on actual data
+                // For demo purposes, we'll just simulate filtering
+                
+                const searchTerm = searchInput.value.toLowerCase();
+                const category = document.querySelector('#category').value;
+                const genre = document.querySelector('#genre').value;
+                const price = document.querySelector('#price').value;
+                
+                // Simple simulation of filtering
+                sampleCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    
+                    // Simple search match (would be more complex in real implementation)
+                    const matchesSearch = searchTerm === '' || 
+                                         title.includes(searchTerm) || 
+                                         description.includes(searchTerm);
+                    
+                    // Show/hide based on search match (in real implementation, would check all filters)
+                    if (matchesSearch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | Echo Samples</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Cart specific styles */
+        .cart-container {
+            padding: 60px 0;
+        }
+        
+        .cart-header {
+            margin-bottom: 30px;
+        }
+        
+        .cart-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .cart-items {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .cart-summary {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .cart-item {
+            display: flex;
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .cart-item-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+        
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-details h3 {
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-details p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .cart-item-price {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        
+        .cart-item-actions button {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-right: 15px;
+        }
+        
+        .cart-item-actions button:hover {
+            color: var(--secondary-color);
+        }
+        
+        .cart-summary-card {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .cart-summary-card h3 {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .summary-total .total-price {
+            color: var(--secondary-color);
+        }
+        
+        .checkout-button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+        }
+        
+        .promo-code {
+            margin-top: 20px;
+        }
+        
+        .promo-code h4 {
+            margin-bottom: 10px;
+        }
+        
+        .promo-code-input {
+            display: flex;
+        }
+        
+        .promo-code-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .promo-code-input button {
+            padding: 10px 15px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .promo-code-input button:hover {
+            background-color: #ff7e5f;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .empty-cart i {
+            font-size: 5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .empty-cart h3 {
+            margin-bottom: 15px;
+        }
+        
+        .empty-cart p {
+            margin-bottom: 30px;
+            color: #aaa;
+        }
+        
+        .payment-options {
+            margin-top: 20px;
+        }
+        
+        .payment-options h4 {
+            margin-bottom: 10px;
+        }
+        
+        .payment-icons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .payment-icons i {
+            font-size: 1.5rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Echo<span>Samples</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Sample Packs</a></li>
+                    <li><a href="free-samples.html">Free Samples</a></li>
+                    <li><a href="subscription.html">Subscription</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">2</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-container">
+        <div class="container">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <p>Review your items before checkout</p>
+            </div>
+            
+            <div class="cart-content">
+                <div class="cart-items">
+                    <!-- Cart Item 1 -->
+                    <div class="cart-item">
+                        <div class="cart-item-img">
+                            <img src="assets/premium-sample1.jpg" alt="Urban Beats Collection">
+                        </div>
+                        <div class="cart-item-details">
+                            <h3>Urban Beats Collection</h3>
+                            <p>Modern trap and hip-hop samples with punchy drums and melodic elements.</p>
+                            <div class="cart-item-price">$29.99</div>
+                            <div class="cart-item-actions">
+                                <button class="remove-item"><i class="fas fa-trash"></i> Remove</button>
+                                <button class="save-for-later"><i class="fas fa-heart"></i> Save for later</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Item 2 -->
+                    <div class="cart-item">
+                        <div class="cart-item-img">
+                            <img src="assets/premium-sample2.jpg" alt="Ambient Textures">
+                        </div>
+                        <div class="cart-item-details">
+                            <h3>Ambient Textures</h3>
+                            <p>Atmospheric pads, evolving textures, and cinematic soundscapes.</p>
+                            <div class="cart-item-price">$24.99</div>
+                            <div class="cart-item-actions">
+                                <button class="remove-item"><i class="fas fa-trash"></i> Remove</button>
+                                <button class="save-for-later"><i class="fas fa-heart"></i> Save for later</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Empty Cart Message (hidden by default) -->
+                    <div class="empty-cart" style="display: none;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added any sample packs to your cart yet.</p>
+                        <a href="catalog.html" class="btn btn-primary">Browse Sample Packs</a>
+                    </div>
+                </div>
+                
+                <div class="cart-summary">
+                    <div class="cart-summary-card">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-item">
+                            <span>Urban Beats Collection</span>
+                            <span>$29.99</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Ambient Textures</span>
+                            <span>$24.99</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span>$54.98</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Discount</span>
+                            <span>-$0.00</span>
+                        </div>
+                        
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span class="total-price">$54.98</span>
+                        </div>
+                        
+                        <button class="btn btn-primary checkout-button">Proceed to Checkout</button>
+                        
+                        <div class="promo-code">
+                            <h4>Promo Code</h4>
+                            <div class="promo-code-input">
+                                <input type="text" placeholder="Enter promo code">
+                                <button>Apply</button>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-options">
+                            <h4>We Accept</h4>
+                            <div class="payment-icons">
+                                <i class="fab fa-cc-visa"></i>
+                                <i class="fab fa-cc-mastercard"></i>
+                                <i class="fab fa-cc-amex"></i>
+                                <i class="fab fa-cc-paypal"></i>
+                                <i class="fab fa-cc-apple-pay"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Echo Samples</h3>
+                    <p>Premium sample packs for modern music producers. Elevate your sound with our high-quality samples, loops, and MIDI files.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Sample Packs</a></li>
+                        <li><a href="free-samples.html">Free Samples</a></li>
+                        <li><a href="subscription.html">Subscription</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <div class="newsletter">
+                        <p>Subscribe to get updates on new sample packs and exclusive offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Echo Samples. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove item functionality
+            const removeButtons = document.querySelectorAll('.remove-item');
+            
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const cartItem = this.closest('.cart-item');
+                    const itemName = cartItem.querySelector('h3').textContent;
+                    
+                    if (confirm(`Remove ${itemName} from your cart?`)) {
+                        cartItem.remove();
+                        
+                        // Check if cart is empty
+                        const cartItems = document.querySelectorAll('.cart-item');
+                        if (cartItems.length === 0) {
+                            document.querySelector('.empty-cart').style.display = 'block';
+                            document.querySelector('.cart-summary').style.display = 'none';
+                        }
+                        
+                        // Update cart count
+                        const cartCount = document.querySelector('.cart-count');
+                        cartCount.textContent = cartItems.length;
+                        
+                        // Update summary (in a real implementation, this would recalculate totals)
+                        alert('Item removed from cart!');
+                    }
+                });
+            });
+            
+            // Checkout button
+            const checkoutButton = document.querySelector('.checkout-button');
+            
+            checkoutButton.addEventListener('click', function() {
+                alert('Proceeding to checkout... In a real implementation, this would take you to a payment page.');
+            });
+            
+            // Promo code application
+            const promoButton = document.querySelector('.promo-code-input button');
+            
+            promoButton.addEventListener('click', function() {
+                const promoInput = document.querySelector('.promo-code-input input');
+                const promoCode = promoInput.value.trim();
+                
+                if (promoCode === '') {
+                    alert('Please enter a promo code.');
+                    return;
+                }
+                
+                // In a real implementation, this would validate the promo code with the server
+                alert('Promo code applied successfully!');
+                promoInput.value = '';
+            });
+        });
+    </script>
+</body>
+</html>

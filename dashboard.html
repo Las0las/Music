@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | Echo Samples</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Dashboard specific styles */
+        .dashboard-container {
+            display: flex;
+            min-height: calc(100vh - 80px - 350px); /* Subtract header and footer heights */
+        }
+        
+        .dashboard-sidebar {
+            width: 250px;
+            background-color: #252525;
+            padding: 30px 0;
+        }
+        
+        .dashboard-sidebar .user-info {
+            padding: 0 20px 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+        }
+        
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+        }
+        
+        .user-info h3 {
+            margin-bottom: 5px;
+        }
+        
+        .user-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #ddd;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background-color: #333;
+            color: var(--secondary-color);
+        }
+        
+        .sidebar-menu a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .dashboard-content {
+            flex: 1;
+            padding: 30px;
+            background-color: #1a1a1a;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-header h2 {
+            margin-bottom: 0;
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .stat-card h3 {
+            margin-bottom: 5px;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .stat-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .recent-downloads {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .recent-downloads h3 {
+            margin-bottom: 20px;
+        }
+        
+        .download-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .download-item:last-child {
+            border-bottom: none;
+        }
+        
+        .download-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .download-info {
+            flex: 1;
+        }
+        
+        .download-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .download-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .download-date {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .subscription-info {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .subscription-info h3 {
+            margin-bottom: 20px;
+        }
+        
+        .subscription-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .plan-info h4 {
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .plan-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .recommended-packs {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .recommended-packs h3 {
+            margin-bottom: 20px;
+        }
+        
+        .pack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .pack-card {
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .pack-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pack-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .pack-card-content {
+            padding: 15px;
+        }
+        
+        .pack-card-content h4 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .pack-card-content p {
+            color: #aaa;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .pack-card-content .btn {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Echo<span>Samples</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Sample Packs</a></li>
+                    <li><a href="free-samples.html">Free Samples</a></li>
+                    <li><a href="subscription.html">Subscription</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="dashboard.html" class="btn btn-outline">My Account</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="dashboard-sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>John Doe</h3>
+                <p>Pro Member</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-download"></i> My Downloads</a></li>
+                <li><a href="#"><i class="fas fa-credit-card"></i> Subscription</a></li>
+                <li><a href="#"><i class="fas fa-heart"></i> Favorites</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="dashboard-content">
+            <div class="dashboard-header">
+                <h2>Dashboard</h2>
+                <div class="date">April 26, 2025</div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>12</h3>
+                    <p>Downloads This Month</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>48</h3>
+                    <p>Total Downloads</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>5</h3>
+                    <p>Favorite Packs</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Pro</h3>
+                    <p>Current Plan</p>
+                </div>
+            </div>
+            
+            <!-- Subscription Info -->
+            <div class="subscription-info">
+                <h3>Subscription Details</h3>
+                
+                <div class="subscription-details">
+                    <div class="plan-info">
+                        <h4>Pro Plan</h4>
+                        <p>$19.99/month</p>
+                        <p>Next billing date: May 26, 2025</p>
+                    </div>
+                    
+                    <div class="plan-actions">
+                        <a href="subscription.html" class="btn btn-outline">Change Plan</a>
+                    </div>
+                </div>
+                
+                <div class="plan-features">
+                    <p><i class="fas fa-check"></i> Unlimited downloads</p>
+                    <p><i class="fas fa-check"></i> Access to all sample packs</p>
+                    <p><i class="fas fa-check"></i> Early access to new releases</p>
+                    <p><i class="fas fa-check"></i> Producer community access</p>
+                </div>
+            </div>
+            
+            <!-- Recent Downloads -->
+            <div class="recent-downloads">
+                <h3>Recent Downloads</h3>
+                
+                <div class="download-item">
+                    <img src="assets/eternal-echo.jpg" alt="Eternal Echo">
+                    <div class="download-info">
+                        <h4>Eternal Echo</h4>
+                        <p>MGK-style emotional guitar samples</p>
+                    </div>
+                    <div class="download-date">Apr 26, 2025</div>
+                </div>
+                
+                <div class="download-item">
+                    <img src="assets/trap-melody-sample.jpg" alt="Super Trap Loop Kit">
+                    <div class="download-info">
+                        <h4>Super Trap Loop Kit</h4>
+                        <p>Modern trap melody loops</p>
+                    </div>
+                    <div class="download-date">Apr 25, 2025</div>
+                </div>
+                
+                <div class="download-item">
+                    <img src="assets/lofi-essentials.jpg" alt="Lofi Essentials">
+                    <div class="download-info">
+                        <h4>Lofi Essentials</h4>
+                        <p>Warm vinyl crackles and mellow piano samples</p>
+                    </div>
+                    <div class="download-date">Apr 23, 2025</div>
+                </div>
+                
+                <div class="download-actions" style="text-align: center; margin-top: 20px;">
+                    <a href="#" class="btn btn-outline">View All Downloads</a>
+                </div>
+            </div>
+            
+            <!-- Recommended Packs -->
+            <div class="recommended-packs">
+                <h3>Recommended For You</h3>
+                
+                <div class="pack-grid">
+                    <div class="pack-card">
+                        <img src="assets/premium-sample1.jpg" alt="Urban Beats Collection">
+                        <div class="pack-card-content">
+                            <h4>Urban Beats Collection</h4>
+                            <p>Modern trap and hip-hop samples</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pack-card">
+                        <img src="assets/premium-sample2.jpg" alt="Ambient Textures">
+                        <div class="pack-card-content">
+                            <h4>Ambient Textures</h4>
+                            <p>Atmospheric pads and textures</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pack-card">
+                        <img src="assets/premium-sample3.jpg" alt="Vocal Chops & Phrases">
+                        <div class="pack-card-content">
+                            <h4>Vocal Chops & Phrases</h4>
+                            <p>Professional vocal samples</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pack-card">
+                        <img src="assets/sample-pack4.jpg" alt="Future Bass Toolkit">
+                        <div class="pack-card-content">
+                            <h4>Future Bass Toolkit</h4>
+                            <p>Energetic synths and wobbles</p>
+                            <a href="#" class="btn btn-primary">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Echo Samples</h3>
+                    <p>Premium sample packs for modern music producers. Elevate your sound with our high-quality samples, loops, and MIDI files.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Sample Packs</a></li>
+                        <li><a href="free-samples.html">Free Samples</a></li>
+                        <li><a href="subscription.html">Subscription</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <div class="newsletter">
+                        <p>Subscribe to get updates on new sample packs and exclusive offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Echo Samples. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

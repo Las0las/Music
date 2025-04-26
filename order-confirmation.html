@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation | Echo Samples</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Order confirmation specific styles */
+        .confirmation-container {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .confirmation-card {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .confirmation-icon {
+            font-size: 5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .confirmation-card h2 {
+            margin-bottom: 15px;
+        }
+        
+        .confirmation-card p {
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+        
+        .order-details {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .order-details h3 {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .order-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .order-info-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .order-info-item h4 {
+            margin-bottom: 5px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .order-info-item p {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        
+        .order-items {
+            margin-top: 30px;
+        }
+        
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .order-item-info {
+            flex: 1;
+        }
+        
+        .order-item-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .order-item-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .order-item-price {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .order-summary {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #333;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .summary-total .total-price {
+            color: var(--secondary-color);
+        }
+        
+        .download-instructions {
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .download-instructions h3 {
+            margin-bottom: 15px;
+        }
+        
+        .download-instructions ol {
+            padding-left: 20px;
+        }
+        
+        .download-instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .download-instructions .btn {
+            margin-top: 20px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">Echo<span>Samples</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalog.html">Sample Packs</a></li>
+                    <li><a href="free-samples.html">Free Samples</a></li>
+                    <li><a href="subscription.html">Subscription</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="dashboard.html" class="btn btn-outline">My Account</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Order Confirmation Section -->
+    <section class="confirmation-container">
+        <div class="container">
+            <div class="confirmation-card">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                
+                <h2>Thank You for Your Order!</h2>
+                <p>Your order has been successfully placed. You will receive a confirmation email shortly with your order details.</p>
+                
+                <div class="order-details">
+                    <h3>Order Details</h3>
+                    
+                    <div class="order-info">
+                        <div class="order-info-item">
+                            <h4>Order Number</h4>
+                            <p>#ES25041001</p>
+                        </div>
+                        
+                        <div class="order-info-item">
+                            <h4>Order Date</h4>
+                            <p>April 26, 2025</p>
+                        </div>
+                        
+                        <div class="order-info-item">
+                            <h4>Payment Method</h4>
+                            <p>Credit Card (****1234)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="order-items">
+                        <h4>Items Ordered</h4>
+                        
+                        <div class="order-item">
+                            <img src="assets/premium-sample1.jpg" alt="Urban Beats Collection">
+                            <div class="order-item-info">
+                                <h4>Urban Beats Collection</h4>
+                                <p>Modern trap and hip-hop samples</p>
+                            </div>
+                            <div class="order-item-price">$29.99</div>
+                        </div>
+                        
+                        <div class="order-item">
+                            <img src="assets/premium-sample2.jpg" alt="Ambient Textures">
+                            <div class="order-item-info">
+                                <h4>Ambient Textures</h4>
+                                <p>Atmospheric pads and textures</p>
+                            </div>
+                            <div class="order-item-price">$24.99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span>$54.98</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Discount</span>
+                            <span>-$0.00</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Tax</span>
+                            <span>$5.50</span>
+                        </div>
+                        
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span class="total-price">$60.48</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="download-instructions">
+                    <h3>Download Instructions</h3>
+                    <ol>
+                        <li>Log in to your Echo Samples account</li>
+                        <li>Go to "My Downloads" in your dashboard</li>
+                        <li>Find your purchased sample packs</li>
+                        <li>Click the download button to get your files</li>
+                    </ol>
+                    
+                    <a href="dashboard.html" class="btn btn-primary">Go to My Downloads</a>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="catalog.html" class="btn btn-outline">Continue Shopping</a>
+                    <a href="dashboard.html" class="btn btn-primary">View My Account</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Echo Samples</h3>
+                    <p>Premium sample packs for modern music producers. Elevate your sound with our high-quality samples, loops, and MIDI files.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Sample Packs</a></li>
+                        <li><a href="free-samples.html">Free Samples</a></li>
+                        <li><a href="subscription.html">Subscription</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <div class="newsletter">
+                        <p>Subscribe to get updates on new sample packs and exclusive offers.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Echo Samples. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

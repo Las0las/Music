@@ -1,0 +1,173 @@
+[
+    {
+        "id": 1,
+        "name": "Las 0las Crimson Phoenix 42",
+        "description": "Emotional guitar-driven samples inspired by MGK's \"Twin Flame\" style.",
+        "price": 0,
+        "image": "assets/sample-packs/crimson-phoenix-preview.jpg",
+        "category": "free",
+        "rating": 5,
+        "date": "2025-04-26",
+        "downloadPath": "downloads/las0las_samples/crimson_phoenix_42/",
+        "files": [
+            {"name": "Melody", "path": "downloads/las0las_samples/crimson_phoenix_42/melody.mid"},
+            {"name": "Drums", "path": "downloads/las0las_samples/crimson_phoenix_42/drums.mid"},
+            {"name": "Bass", "path": "downloads/las0las_samples/crimson_phoenix_42/bass.mid"},
+            {"name": "Guitar", "path": "downloads/las0las_samples/crimson_phoenix_42/guitar.mid"}
+        ],
+        "tags": ["guitar", "emotional", "mgk", "free", "midi"]
+    },
+    {
+        "id": 2,
+        "name": "Las 0las Emerald Venom Manhattan 7",
+        "description": "Modern trap melody loops perfect for hip-hop and trap productions.",
+        "price": 0,
+        "image": "assets/sample-packs/emerald-venom-preview.jpg",
+        "category": "free",
+        "rating": 4,
+        "date": "2025-04-26",
+        "downloadPath": "downloads/las0las_samples/emerald_venom_manhattan_7/",
+        "tags": ["trap", "melody", "loops", "free"]
+    },
+    {
+        "id": 3,
+        "name": "Las 0las Cobalt Thanos Tokyo 13",
+        "description": "Ultimate deconstructed kit with artificial elements for modern productions.",
+        "price": 29.99,
+        "image": "assets/sample-packs/cobalt-thanos-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-25",
+        "downloadPath": "downloads/las0las_samples/cobalt_thanos_tokyo_13/",
+        "tags": ["deconstructed", "artificial", "premium", "modern"]
+    },
+    {
+        "id": 4,
+        "name": "Las 0las Azure Panther Paris 99",
+        "description": "Smooth jazz loops and samples for lo-fi and jazz-influenced productions.",
+        "price": 24.99,
+        "image": "assets/sample-packs/azure-panther-preview.jpg",
+        "category": "premium",
+        "rating": 4,
+        "date": "2025-04-24",
+        "downloadPath": "downloads/las0las_samples/azure_panther_paris_99/",
+        "tags": ["jazz", "loops", "lo-fi", "premium"]
+    },
+    {
+        "id": 5,
+        "name": "Las 0las Scarlet Magneto Berlin 21",
+        "description": "Powerful REESE bass samples for dubstep, drum & bass, and electronic music.",
+        "price": 19.99,
+        "image": "assets/sample-packs/scarlet-magneto-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-23",
+        "downloadPath": "downloads/las0las_samples/scarlet_magneto_berlin_21/",
+        "tags": ["bass", "reese", "electronic", "dubstep", "dnb"]
+    },
+    {
+        "id": 6,
+        "name": "Las 0las Violet Hulk Miami 808",
+        "description": "Essential 808 samples for trap, hip-hop, and modern urban productions.",
+        "price": 14.99,
+        "image": "assets/sample-packs/violet-hulk-preview.jpg",
+        "category": "premium",
+        "rating": 4,
+        "date": "2025-04-22",
+        "downloadPath": "downloads/las0las_samples/violet_hulk_miami_808/",
+        "tags": ["808", "trap", "hip-hop", "drums"]
+    },
+    {
+        "id": 7,
+        "name": "Las 0las Golden Joker Atlanta 55",
+        "description": "Authentic 808 Mafia style drum kit inspired by Southside's production techniques.",
+        "price": 34.99,
+        "image": "assets/sample-packs/golden-joker-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-21",
+        "downloadPath": "downloads/las0las_samples/golden_joker_atlanta_55/",
+        "tags": ["808", "mafia", "southside", "trap", "drums", "premium"]
+    },
+    {
+        "id": 8,
+        "name": "Las 0las Midnight Batman Gotham 66",
+        "description": "Atmospheric pads, evolving textures, and cinematic soundscapes.",
+        "price": 24.99,
+        "image": "assets/sample-packs/midnight-batman-preview.jpg",
+        "category": "premium",
+        "rating": 4,
+        "date": "2025-04-20",
+        "tags": ["ambient", "textures", "cinematic", "pads"]
+    },
+    {
+        "id": 9,
+        "name": "Las 0las Silver Mystique London 23",
+        "description": "Professional vocal samples, chops, and phrases for modern productions.",
+        "price": 29.99,
+        "image": "assets/sample-packs/silver-mystique-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-19",
+        "tags": ["vocals", "chops", "phrases", "premium"]
+    },
+    {
+        "id": 10,
+        "name": "Las 0las Neon Deadpool Seoul 303",
+        "description": "Complete toolkit for future bass production with synths, drums, and effects.",
+        "price": 39.99,
+        "image": "assets/sample-packs/neon-deadpool-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-18",
+        "tags": ["future bass", "synths", "toolkit", "premium"]
+    },
+    {
+        "id": 11,
+        "name": "Las 0las Purple Strange Vienna 27",
+        "description": "Elegant violin samples and orchestral elements for classical-inspired productions.",
+        "price": 27.99,
+        "image": "assets/sample-packs/purple-strange-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-26",
+        "downloadPath": "downloads/las0las_samples/purple_strange_vienna_27/",
+        "tags": ["violin", "orchestral", "classical", "strings", "premium"]
+    },
+    {
+        "id": 12,
+        "name": "Las 0las Turquoise Ironman Sydney 88",
+        "description": "Innovative electronic music samples with unique textures and rhythmic elements.",
+        "price": 32.99,
+        "image": "assets/sample-packs/turquoise-ironman-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-26",
+        "downloadPath": "downloads/las0las_samples/turquoise_ironman_sydney_88/",
+        "tags": ["electronic", "textures", "rhythmic", "innovative", "premium"]
+    },
+    {
+        "id": 13,
+        "name": "Las 0las Amber Wolverine Tokyo 47",
+        "description": "Complete producer toolkit with essential sounds, presets, and production tools.",
+        "price": 49.99,
+        "image": "assets/sample-packs/amber-wolverine-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-26",
+        "downloadPath": "downloads/las0las_samples/amber_wolverine_tokyo_47/",
+        "tags": ["toolkit", "production", "presets", "essential", "premium"]
+    },
+    {
+        "id": 14,
+        "name": "Las 0las Jade Cyclops Paris 17",
+        "description": "Lush floral-inspired sounds and organic textures for ambient and downtempo productions.",
+        "price": 22.99,
+        "image": "assets/sample-packs/jade-cyclops-preview.jpg",
+        "category": "premium",
+        "rating": 5,
+        "date": "2025-04-26",
+        "downloadPath": "downloads/las0las_samples/jade_cyclops_paris_17/",
+        "tags": ["ambient", "organic", "floral", "downtempo", "premium"]
+    }
+]
